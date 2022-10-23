@@ -1,24 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EventListView from '@/views/EventListView.vue'
-import EventEditView from '@/views/event/EventEditView.vue'
-import EventRegisterView from '@/views/event/EventRegisterView.vue'
+import PeopleListView from '@/views/PeopleListView.vue'
+import PeopleEditView from '@/views/event/PeopleEditView.vue'
+import PeopleRegisterView from '@/views/event/PeopleRegisterView.vue'
 import AboutView from '../views/AboutView.vue'
-import EventLayoutView from '@/views/event/EventLayoutView.vue'
-import EventDetailView from '@/views/event/EventDetailView.vue'
+import PeopleLayoutView from '@/views/event/PeopleLayoutView.vue'
+import PeopleDetailView from '@/views/event/PeopleDetailView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetWorkErrorView from '@/views/NetworkErrorView.vue'
-import AddEvent from '@/views/EventForm.vue'
+import AddPeople from '@/views/PeopleForm.vue'
 import NProgress from 'nprogress'
 import GStore from '@/store'
-import EventService from '@/services/EventService'
+import PeopleService from '@/services/PeopleService'
 import OrganizerService from '@/services/OrganizerService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
 const routes = [
   {
     path: '/',
-    name: 'EventList',
-    component: EventListView,
+    name: 'PeopleList',
+    component: PeopleListView,
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {
@@ -27,19 +27,19 @@ const routes = [
     component: AboutView
   },
   {
-    path: '/event/:id',
-    name: 'EventLayoutView',
-    component: EventLayoutView,
+    path: '/people/:id',
+    name: 'PeopleLayoutView',
+    component: PeopleLayoutView,
     beforeEnter: (to) => {
-      return EventService.getEvent(to.params.id)
+      return PeopleService.getPeople(to.params.id)
         .then((response) => {
-          GStore.event = response.data
+          GStore.people = response.data
         })
         .catch((error) => {
           if (error.response && error.response.start == 404) {
             return {
               name: '404Resource',
-              parames: { resource: 'event' }
+              parames: { resource: 'people' }
             }
           } else {
             return { name: 'NetworkError' }
@@ -50,28 +50,28 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'EventDetails',
-        component: EventDetailView,
+        name: 'PeopleDetails',
+        component: PeopleDetailView,
         props: true
       },
       {
         path: 'register',
-        name: 'EventRegister',
+        name: 'PeopleRegister',
         props: true,
-        component: EventRegisterView
+        component: PeopleRegisterView
       },
       {
         path: 'edit',
-        name: 'EventEdit',
+        name: 'PeopleEdit',
         props: true,
-        component: EventEditView
+        component: PeopleEditView
       }
     ]
   },
   {
     path: '/add-event',
-    name: 'AddEvent',
-    component: AddEvent,
+    name: 'AddPeople',
+    component: AddPeople,
     beforeEnter: () => {
       return OrganizerService.getOrganizers()
         .then((response) => {

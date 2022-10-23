@@ -1,21 +1,20 @@
 <template>
   <router-link
     class="event-link"
-    :to="{ name: 'EventLayoutView', params: { id: event.id } }"
+    :to="{ name: 'PeopleLayoutView', params: { id: people.id } }"
   >
     <div class="event-card">
-      <span>@{{ event.time }} on {{ event.date }}</span>
-      <h4>{{ event.title }}</h4>
-      <span>by</span>
-      <h5>{{ event.organizer.name }}</h5>
+      <img :src="people.imageUrls[0]" />
+      <span>@{{ people.name }} on {{ people.surname }}</span>
+      <h4>{{ people.hometown }}</h4>
     </div>
   </router-link>
 </template>
 <script>
 export default {
-  name: 'EventCard',
+  name: 'PeopleCard',
   props: {
-    event: {
+    people: {
       type: Object,
       required: true
     }

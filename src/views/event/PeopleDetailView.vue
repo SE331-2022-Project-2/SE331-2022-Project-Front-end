@@ -1,12 +1,12 @@
 <template>
-  <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
-  <p>{{ event.description }}</p>
+  <p>{{ people.time }} on {{ people.date }} @ {{ people.location }}</p>
+  <p>{{ people.description }}</p>
   <img v-for="url in event.imageUrls" :key="url" :src="url" />
 </template>
 
 <script>
 export default {
-  props: ['id', 'event']
+  props: ['id', 'people']
 }
 </script>
 <style scoped>

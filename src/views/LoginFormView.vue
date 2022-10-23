@@ -69,7 +69,7 @@ export default {
       console.log(user)
       AuthService.login(user).then(() => {
         console.log(12)
-        this.$router.push({ name: 'EventList' })
+        this.$router.push({ name: 'PeopleList' })
       })
     }
   }

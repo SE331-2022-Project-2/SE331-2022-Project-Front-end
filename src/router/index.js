@@ -11,7 +11,7 @@ import AddPeople from '@/views/PeopleForm.vue'
 import NProgress from 'nprogress'
 import GStore from '@/store'
 import PeopleService from '@/services/PeopleService'
-import OrganizerService from '@/services/OrganizerService.js'
+import OrganizerService from '@/services/DoctorService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
 const routes = [

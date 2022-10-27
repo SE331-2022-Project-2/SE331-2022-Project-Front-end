@@ -54,6 +54,12 @@ export default {
     },
     isAdmin() {
       return AuthServices.hasRoles('ROLE_ADMIN')
+    },
+    isPeople() {
+      return AuthServices.hasRoles('ROLE_PEOPLE')
+    },
+    isDoctor() {
+      return AuthServices.hasRoles('ROLE_DOCTOR')
     }
   },
   methods: {

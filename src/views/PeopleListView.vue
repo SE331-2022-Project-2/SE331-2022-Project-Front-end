@@ -12,7 +12,35 @@
         />
       </div>
 
-      <PeopleCard v-for="people in peoples" :key="people.id" :people="people" />
+      <div v-if="isPeople">
+        <div v-for="people in peoples" :key="people.id" :people="people">
+          <span v-if="people.name == GStore.currentUser.name">
+            <PeopleCard :people="people" />
+          </span>
+        </div>
+      </div>
+
+      <div v-if="isDoctor">
+        <div v-for="people in peoples" :key="people.id" :people="people">
+          <span
+            v-for="hasVaccine in people.hasVaccines"
+            :key="hasVaccine.id"
+            :people="people"
+          >
+            <span v-if="hasVaccine.doctor.name == GStore.currentUser.name">
+              <PeopleCard :people="people" />
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div v-if="isAdmin">
+        <PeopleCard
+          v-for="people in peoples"
+          :key="people.id"
+          :people="people"
+        />
+      </div>
 
       <div class="pagination">
         <router-link
@@ -41,9 +69,11 @@
 // @ is an alias to /src
 import PeopleCard from '@/components/PeopleCard.vue'
 import PeopleService from '@/services/PeopleService.js'
+import AuthServices from '@/services/AuthServices'
 
 export default {
   name: 'PeopleListView',
+  inject: ['GStore'],
   props: {
     page: {
       type: Number,
@@ -123,6 +153,18 @@ export default {
     hasNextPage() {
       let totalPages = Math.ceil(this.totalPeoples / 3)
       return this.page < totalPages
+    },
+    currentUser() {
+      return localStorage.getItem('user')
+    },
+    isAdmin() {
+      return AuthServices.hasRoles('ROLE_ADMIN')
+    },
+    isPeople() {
+      return AuthServices.hasRoles('ROLE_PEOPLE')
+    },
+    isDoctor() {
+      return AuthServices.hasRoles('ROLE_DOCTOR')
     }
   }
 }

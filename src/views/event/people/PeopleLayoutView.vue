@@ -9,6 +9,8 @@
       <router-link :to="{ name: 'PeopleVaccine' }">Vaccines</router-link>
       |
       <router-link :to="{ name: 'PeopleComment' }">Doctor Comment</router-link>
+      |
+      <router-link :to="{ name: 'DoctorAddComment' }">Add Comment</router-link>
     </div>
     <router-view :people="GStore.people" />
   </div>

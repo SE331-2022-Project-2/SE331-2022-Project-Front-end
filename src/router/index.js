@@ -5,6 +5,7 @@ import PeopleInformationView from '@/views/event/people/PeopleInformationView'
 import AddVaccineView from '../views/AddVaccineView.vue'
 import PeopleLayoutView from '@/views/event/people/PeopleLayoutView'
 import PeopleVaccineView from '@/views/event/people/PeopleVaccineView'
+import AddCommentView from '@/views/event/people/AddCommentView'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetWorkErrorView from '@/views/NetworkErrorView.vue'
 import AddPeople from '@/views/PeopleForm.vue'
@@ -65,6 +66,12 @@ const routes = [
         name: 'PeopleComment',
         props: true,
         component: PeopleCommentView
+      },
+      {
+        path: 'add',
+        name: 'AddComment',
+        props: true,
+        component: AddCommentView
       }
     ]
   },

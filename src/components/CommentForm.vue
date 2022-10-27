@@ -1,11 +1,5 @@
 <template>
   <form class="comment-form" @submit.prevent="onSubmit">
-    <label for="name">Doctor Name:</label>
-    <input id="name" v-model="name" />
-
-    <label for="date">Date:</label>
-    <input id="date" v-model="date" />
-
     <label for="comment">Comment:</label>
     <textarea id="comment" v-model="comment"></textarea>
 
@@ -18,17 +12,13 @@ export default {
   inject: ['GStore'],
   data() {
     return {
-      patient_id: '',
-      patient_name: '',
-      patient_surname: '',
-      name: '',
-      comment: '',
-      date: null
+      //   people_id: '',
+      comment: ''
     }
   },
   methods: {
     onSubmit() {
-      if (this.name === '' || this.comment === '' || this.date === null) {
+      if (this.comment === '') {
         alert('Comment incomplete. Please fill out every field.')
         return
       }
@@ -37,20 +27,12 @@ export default {
         this.GStore.flashMessage = ''
       }, 3500)
       let doctorComment = {
-        patient_id: GStore.people.id,
-        patient_name: GStore.people.name,
-        patient_surname: GStore.people.surname,
-        name: this.name,
-        comment: this.comment,
-        date: this.date
+        people_id: GStore.people.id,
+        comment: this.comment
       }
       this.$emit('comment-submited', doctorComment)
-      this.patient_id = ''
-      this.patient_name = ''
-      this.patient_surname = ''
-      this.name = ''
+      //   this.people_id = ''
       this.comment = ''
-      this.date = null
     }
   }
 }
@@ -61,11 +43,13 @@ input {
   height: 40px;
   margin-bottom: 20px;
 }
+
 label {
   font-size: 20px;
   margin-bottom: 5px;
   text-align: left;
 }
+
 .comment-form {
   display: flex;
   flex-direction: column;
@@ -80,6 +64,7 @@ label {
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
 }
+
 .comment-form .button {
   display: block;
   margin: auto;
@@ -88,6 +73,7 @@ label {
   border: 2px solid #d8d8d8;
   border-radius: 5px;
 }
+
 textarea {
   width: 100%;
   height: 70px;
@@ -95,6 +81,7 @@ textarea {
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 @media only screen and (max-width: 600px) {
   .comment-form {
     width: 90%;

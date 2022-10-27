@@ -32,8 +32,11 @@
     </nav>
   </div>
   <nav>
-    <router-link :to="{ name: 'PeopleList' }">Home</router-link> |
-    <router-link :to="{ name: 'about' }">About</router-link>
+    <router-link :to="{ name: 'PeopleList' }">Home</router-link>
+    <span v-if="isAdmin">
+      |
+      <router-link :to="{ name: 'AddVaccine' }">Add Vaccine</router-link>
+    </span>
     <span v-if="isAdmin">
       |
       <router-link :to="{ name: 'AddPeople' }"> New People</router-link>

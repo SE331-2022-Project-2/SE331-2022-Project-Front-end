@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PeopleListView from '@/views/PeopleListView.vue'
 import PeopleCommentView from '@/views/event/people/PeopleCommentView.vue'
 import PeopleInformationView from '@/views/event/people/PeopleInformationView'
-import AboutView from '../views/AboutView.vue'
+import AddVaccineView from '../views/AddVaccineView.vue'
 import PeopleLayoutView from '@/views/event/people/PeopleLayoutView'
 import PeopleVaccineView from '@/views/event/people/PeopleVaccineView'
 import NotFoundView from '@/views/NotFoundView.vue'
@@ -22,9 +22,9 @@ const routes = [
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/addVaccine',
+    name: 'AddVaccine',
+    component: AddVaccineView
   },
   {
     path: '/people/:id',

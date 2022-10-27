@@ -5,8 +5,8 @@
   >
     <div class="event-card">
       <img :src="people.imageUrls[0]" />
-      <span>@{{ people.name }} on {{ people.surname }}</span>
-      <h4>{{ people.hometown }}</h4>
+      <span>{{ people.name }} {{ people.surname }}</span>
+      <h4>{{ people.dose }}</h4>
     </div>
   </router-link>
 </template>
@@ -38,5 +38,10 @@ export default {
 .event-link {
   color: #2c3e50;
   text-decoration: none;
+}
+
+.event-card img {
+  max-width: 100%;
+  margin-auto: auto;
 }
 </style>

@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PeopleListView from '@/views/PeopleListView.vue'
-import PeopleEditView from '@/views/event/PeopleEditView.vue'
-import PeopleRegisterView from '@/views/event/PeopleRegisterView.vue'
+import PeopleCommentView from '@/views/event/people/PeopleCommentView.vue'
+import PeopleInformationView from '@/views/event/people/PeopleInformationView'
 import AboutView from '../views/AboutView.vue'
-import PeopleLayoutView from '@/views/event/PeopleLayoutView.vue'
-import PeopleDetailView from '@/views/event/PeopleDetailView.vue'
+import PeopleLayoutView from '@/views/event/people/PeopleLayoutView'
+import PeopleVaccineView from '@/views/event/people/PeopleVaccineView'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetWorkErrorView from '@/views/NetworkErrorView.vue'
 import AddPeople from '@/views/PeopleForm.vue'
@@ -50,21 +50,21 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'PeopleDetails',
-        component: PeopleDetailView,
+        name: 'PeopleInformations',
+        component: PeopleInformationView,
         props: true
       },
       {
-        path: 'register',
-        name: 'PeopleRegister',
+        path: 'Vaccine',
+        name: 'PeopleVaccine',
         props: true,
-        component: PeopleRegisterView
+        component: PeopleVaccineView
       },
       {
         path: 'edit',
-        name: 'PeopleEdit',
+        name: 'PeopleComment',
         props: true,
-        component: PeopleEditView
+        component: PeopleCommentView
       }
     ]
   },

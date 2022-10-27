@@ -1,7 +1,6 @@
 <template>
-  <p>{{ people.time }} on {{ people.date }} @ {{ people.location }}</p>
-  <p>{{ people.description }}</p>
-  <img v-for="url in event.imageUrls" :key="url" :src="url" />
+  <p>{{ people.name }} {{ people.surname }} {{ people.age }}</p>
+  <p>{{ people.hometown }}</p>
 </template>
 
 <script>

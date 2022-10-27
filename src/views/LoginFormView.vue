@@ -114,7 +114,7 @@ body {
 .container:hover .center,
 .container:active .center {
   opacity: 1;
-  transition-delay: 0.2s;
+  transition-delay: 0.1s;
 }
 .top:before,
 .bottom:before,

@@ -1,8 +1,8 @@
 <template>
   <a v-for="vaccine in people.hasVaccines" :key="vaccine.id">
-    <td>{{ vaccine.vaccineName }}</td>
-    <td>{{ vaccine.date }}</td>
-    <td>{{ vaccine.dose }}</td>
+    <td>Vaccine name : {{ vaccine.vaccineName }}</td>
+    <td>date {{ vaccine.date }}</td>
+    <td>Number of dose : {{ vaccine.dose }}</td>
   </a>
 </template>
 

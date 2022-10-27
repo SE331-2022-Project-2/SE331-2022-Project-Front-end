@@ -4,15 +4,13 @@
       class="event-link"
       :to="{ name: 'PeopleLayoutView', params: { id: people.id } }"
     >
-      <div class="box">
-        <div class="event-card">
-          <div class="imgBx">
-            <img :src="people.imageUrls[0]" />
-          </div>
-          <div class="details">
-            <span>{{ people.name }} {{ people.surname }}</span>
-            <h4>{{ people.dose }}</h4>
-          </div>
+      <div class="event-card">
+        <div class="imgBx">
+          <img :src="people.imageUrls[0]" />
+        </div>
+        <div class="details">
+          <span>{{ people.name }} {{ people.surname }}</span>
+          <h4>{{ people.dose }}</h4>
         </div>
       </div>
     </router-link>
@@ -42,14 +40,6 @@ body {
   background: white;
   font-family: sans-serif;
 }
-/* .box {
-  position: static;
-  width: 1200px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 15px;
-  margin: 0 auto;
-} */
 .event-card {
   position: relative;
   width: 300px;

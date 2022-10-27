@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PeopleListView from '@/views/PeopleListView.vue'
-import PeopleCommentView from '@/views/event/people/PeopleCommentView.vue'
 import PeopleInformationView from '@/views/event/people/PeopleInformationView'
 import AddVaccineView from '../views/AddVaccineView.vue'
 import PeopleLayoutView from '@/views/event/people/PeopleLayoutView'
@@ -60,12 +59,6 @@ const routes = [
         name: 'PeopleVaccine',
         props: true,
         component: PeopleVaccineView
-      },
-      {
-        path: 'edit',
-        name: 'PeopleComment',
-        props: true,
-        component: PeopleCommentView
       },
       {
         path: 'add',

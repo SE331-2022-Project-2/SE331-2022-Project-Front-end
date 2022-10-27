@@ -34,6 +34,38 @@
           </div>
 
           <div class="form-group">
+            <label for="firstname">First Name</label>
+
+            <Field name="firstname" type="firstname" class="form-control" />
+
+            <ErrorMessage name="firstname" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+
+            <Field name="lastname" type="lastname" class="form-control" />
+
+            <ErrorMessage name="lastname" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age</label>
+
+            <Field name="age" type="age" class="form-control" />
+
+            <ErrorMessage name="age" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="hometown">Hometown</label>
+
+            <Field name="hometown" type="hometown" class="form-control" />
+
+            <ErrorMessage name="hometown" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
                 v-show="loading"
@@ -88,6 +120,23 @@ export default {
       password: yup
         .string()
         .required('Password is required!')
+        .min(6, 'Must be at least 6 characters!')
+        .max(40, 'Must be maximum 40 characters!'),
+      firstname: yup
+        .string()
+        .required('First name is required!')
+        .max(40, 'Must be maximum 40 characters!'),
+      lastname: yup
+        .string()
+        .required('Last name is required!')
+        .max(40, 'Must be maximum 40 characters!'),
+      age: yup
+        .string()
+        .required('Age is required!')
+        .max(3, 'Must be maximum 3 characters!'),
+      hometown: yup
+        .string()
+        .required('Hometown is required!')
         .min(6, 'Must be at least 6 characters!')
         .max(40, 'Must be maximum 40 characters!')
     })

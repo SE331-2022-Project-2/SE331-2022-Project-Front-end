@@ -5,7 +5,11 @@ export default {
     return apiClient.post('/register', {
       username: user.username,
       password: user.password,
-      email: user.email
+      email: user.email,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      age: user.age,
+      hometown: user.hometown
     })
   },
   login(user) {

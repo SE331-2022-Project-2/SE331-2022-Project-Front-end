@@ -12,6 +12,14 @@
     </div>
     <p>
       {{ GStore.user.username }}
+      {{ GStore.user.email }}
+      {{ GStore.user.age }}
+      {{ GStore.user.hometown }}
+      <span v-for="authoritie in GStore.user.authorities" :key="authoritie">
+        <div v-if="authoritie == 'ROLE_ADMIN'">Role : Admin</div>
+        <div v-if="authoritie == 'ROLE_PEOPLE'">Role : Patient</div>
+        <div v-if="authoritie == 'ROLE_DOCTOR'">Role : Doctor</div>
+      </span>
     </p>
     <button @click="changeToPatient">SetPatient</button>
     <button @click="changeToDoctor">SetDoctor</button>

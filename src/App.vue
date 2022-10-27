@@ -41,6 +41,10 @@
       |
       <router-link :to="{ name: 'AddPeople' }"> New People</router-link>
     </span>
+    <span v-if="isAdmin">
+      |
+      <router-link :to="{ name: 'UserList' }"> User List</router-link>
+    </span>
   </nav>
   <router-view />
 </template>

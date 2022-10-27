@@ -49,5 +49,15 @@ export default {
     } else {
       return false
     }
+  },
+  changeToPatient(user) {
+    return apiClient.post('/applyPeople', {
+      id: user.id
+    })
+  },
+  changeToDoctor(user) {
+    return apiClient.post('/applyDoctor', {
+      id: user.id
+    })
   }
 }

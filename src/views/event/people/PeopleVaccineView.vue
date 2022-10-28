@@ -1,9 +1,20 @@
 <template>
-  <a v-for="vaccine in people.hasVaccines" :key="vaccine.id">
-    <td>Vaccine name : {{ vaccine.vaccineName }}</td>
-    <td>date {{ vaccine.date }}</td>
-    <td>Number of dose : {{ vaccine.dose }}</td>
-  </a>
+  <table class="detail">
+    <a v-for="vaccine in people.hasVaccines" :key="vaccine.id">
+      <tr>
+        <th>Vaccine name</th>
+        <td>{{ vaccine.vaccineName }}</td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td>{{ vaccine.vaccineName }}</td>
+      </tr>
+      <tr>
+        <th>Number of dose</th>
+        <td>{{ vaccine.dose }}</td>
+      </tr>
+    </a>
+  </table>
 </template>
 
 <script>
@@ -12,15 +23,43 @@ export default {
 }
 </script>
 <style scoped>
-img {
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px; /* Rounded border */
-  padding: 5px; /* Some padding */
-  margin: 5px; /* Some margin */
-  width: 150px; /* Set a small width */
+table {
+  border-collapse: collapse;
+  width: auto;
+  margin-top: 13pt;
+  margin-left: auto;
+  margin-right: auto;
 }
-/* Add a hover effect (blue shadow) */
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
+table,
+th,
+td {
+  border: 2px solid #1abc9c;
+}
+
+.detail thead {
+  background: #1abc9c;
+}
+
+thead {
+  color: white;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 5px 0;
+}
+th {
+  width: 150pt;
+  color: white;
+  background-color: #1abc9c;
+}
+td {
+  width: 150pt;
+  background-color: white;
+}
+tr:hover {
+  background-color: coral;
 }
 </style>

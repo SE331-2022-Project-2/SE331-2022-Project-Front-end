@@ -81,7 +81,8 @@ export default {
     return {
       peoples: null,
       totalPeoples: 0,
-      keyword: null
+      keyword: null,
+      doctorPatients: null
     }
   },
   // eslint-disable-next-line no-unused-vars

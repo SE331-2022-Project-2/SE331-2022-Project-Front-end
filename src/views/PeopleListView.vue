@@ -3,14 +3,6 @@
     <h1>Vaccine Status</h1>
 
     <div class="events">
-      <div class="search-box">
-        <BaseInput
-          v-model="keyword"
-          type="text"
-          label="Search..."
-          @input="updateKeyword"
-        />
-      </div>
 
       <div v-if="isPeople">
         <div v-for="people in peoples" :key="people.id" :people="people">

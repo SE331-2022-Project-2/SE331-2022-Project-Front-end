@@ -7,7 +7,7 @@
 </template>
 <script>
 import CommentForm from '@/components/CommentForm.vue'
-//import AuthService from '@/service/AuthService'
+// import AuthService from '@/service/AuthService'
 import PeopleService from '@/services/PeopleService'
 import GStore from '@/store'
 export default {

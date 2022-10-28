@@ -7,7 +7,7 @@
         <div class="card card-container">
           <img
             id="profile-img"
-            src="//ssl.gstatic.com/acounts/ui/avatar_2x.png"
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             class="profile-img-card"
           />
           <Form @submit="handleLogin" :validation-schema="schema">

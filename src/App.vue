@@ -98,7 +98,7 @@ export default {
 }
 
 nav {
-  padding: 10px;
+  padding: 1px;
 }
 
 nav a {

@@ -1,92 +1,94 @@
 <template>
-  <div class="col-md-12">
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
+  <body>
+    <div class="col-md-12">
+      <div class="card card-container">
+        <img
+          id="profile-img"
+          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          class="profile-img-card"
+        />
 
-      <Form @submit="handleRegister" :validation-schema="schema">
-        <div v-if="!successful">
-          <div class="form-group">
-            <label for="username">Username</label>
+        <Form @submit="handleRegister" :validation-schema="schema">
+          <div v-if="!successful">
+            <div class="form-group">
+              <label for="username">Username</label>
 
-            <Field name="username" type="text" class="form-control" />
+              <Field name="username" type="text" class="form-control" />
 
-            <ErrorMessage name="username" class="error-feedback" />
+              <ErrorMessage name="username" class="error-feedback" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+
+              <Field name="email" type="email" class="form-control" />
+
+              <ErrorMessage name="email" class="error-feedback" />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+
+              <Field name="password" type="password" class="form-control" />
+
+              <ErrorMessage name="password" class="error-feedback" />
+            </div>
+
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+
+              <Field name="firstname" type="firstname" class="form-control" />
+
+              <ErrorMessage name="firstname" class="error-feedback" />
+            </div>
+
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+
+              <Field name="lastname" type="lastname" class="form-control" />
+
+              <ErrorMessage name="lastname" class="error-feedback" />
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age</label>
+
+              <Field name="age" type="age" class="form-control" />
+
+              <ErrorMessage name="age" class="error-feedback" />
+            </div>
+
+            <div class="form-group">
+              <label for="hometown">Hometown</label>
+
+              <Field name="hometown" type="hometown" class="form-control" />
+
+              <ErrorMessage name="hometown" class="error-feedback" />
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" :disabled="loading">
+                <span
+                  v-show="loading"
+                  class="spinner-border spinner-border-sm"
+                ></span>
+
+                Sign Up
+              </button>
+            </div>
           </div>
+        </Form>
 
-          <div class="form-group">
-            <label for="email">Email</label>
-
-            <Field name="email" type="email" class="form-control" />
-
-            <ErrorMessage name="email" class="error-feedback" />
-          </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-
-            <Field name="password" type="password" class="form-control" />
-
-            <ErrorMessage name="password" class="error-feedback" />
-          </div>
-
-          <div class="form-group">
-            <label for="firstname">First Name</label>
-
-            <Field name="firstname" type="firstname" class="form-control" />
-
-            <ErrorMessage name="firstname" class="error-feedback" />
-          </div>
-
-          <div class="form-group">
-            <label for="lastname">Last Name</label>
-
-            <Field name="lastname" type="lastname" class="form-control" />
-
-            <ErrorMessage name="lastname" class="error-feedback" />
-          </div>
-
-          <div class="form-group">
-            <label for="age">Age</label>
-
-            <Field name="age" type="age" class="form-control" />
-
-            <ErrorMessage name="age" class="error-feedback" />
-          </div>
-
-          <div class="form-group">
-            <label for="hometown">Hometown</label>
-
-            <Field name="hometown" type="hometown" class="form-control" />
-
-            <ErrorMessage name="hometown" class="error-feedback" />
-          </div>
-
-          <div class="form-group">
-            <button class="btn btn-primary btn-block" :disabled="loading">
-              <span
-                v-show="loading"
-                class="spinner-border spinner-border-sm"
-              ></span>
-
-              Sign Up
-            </button>
-          </div>
+        <div
+          v-if="message"
+          class="alert"
+          :class="successful ? 'alert-success' : 'alert-danger'"
+        >
+          {{ message }}
         </div>
-      </Form>
-
-      <div
-        v-if="message"
-        class="alert"
-        :class="successful ? 'alert-success' : 'alert-danger'"
-      >
-        {{ message }}
       </div>
     </div>
-  </div>
+  </body>
 </template>
 
 <script>
@@ -168,6 +170,10 @@ export default {
 </script>
 
 <style scoped>
+body {
+  background-image: url(../assets/v870-tang-36.jpg);
+  position: static;
+}
 label {
   display: block;
   margin-top: 10px;

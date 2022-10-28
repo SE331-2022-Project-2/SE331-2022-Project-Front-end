@@ -5,8 +5,9 @@
       :to="{ name: 'PeopleLayoutView', params: { id: people.id } }"
     >
       <div class="event-card">
-        <div class="imgBx"></div>
+        <div class="imgBx">
           <img :src="people.imageUrls" />
+        </div>
         <div class="details">
           <span>{{ people.name }} {{ people.surname }}</span>
           <h4>{{ people.dose }}</h4>
@@ -30,11 +31,14 @@ export default {
 /* @import url('https://fonts.googleapis.com/css?family=Raleway:400,700'); */
 body {
   /* float: right; */
-  margin: 0;
+  /* margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  float: right;
+  width: 100%;
+
   min-height: 60vh;
   background: white;
   font-family: sans-serif;

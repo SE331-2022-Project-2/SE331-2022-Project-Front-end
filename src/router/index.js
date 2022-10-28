@@ -14,6 +14,7 @@ import PeopleService from '@/services/PeopleService'
 import OrganizerService from '@/services/DoctorService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
+import DoctorService from '@/services/DoctorService.js'
 const routes = [
   {
     path: '/',
@@ -24,7 +25,27 @@ const routes = [
   {
     path: '/addVaccine',
     name: 'AddVaccine',
-    component: AddVaccineView
+    component: AddVaccineView,
+    beforeEnter: () => {
+      PeopleService.getPeopleAll()
+        .then((response) => {
+          GStore.peoples = response.data
+        })
+        .catch(() => {
+          GStore.peoples = null
+          console.log('cannot load organizer')
+        })
+
+      DoctorService.getDoctorAll()
+        .then((response) => {
+          GStore.doctors = response.data
+        })
+        .catch(() => {
+          GStore.doctors = null
+          console.log('cannot load organizer')
+        })
+      return
+    }
   },
   {
     path: '/people/:id',

@@ -5,8 +5,8 @@
     :value="modelValue"
     v-bind="{
       ...$attrs,
-      onChange: ($people) => {
-        $emit('update:modelValue', $people.target.value)
+      onChange: ($peoples) => {
+        $emit('update:modelValue', $peoples.target.value)
       }
     }"
   >

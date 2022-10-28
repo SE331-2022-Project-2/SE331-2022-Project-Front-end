@@ -4,7 +4,7 @@
     v-bind="$attrs"
     :value="modelValue"
     :placeholder="label"
-    @input="inputHandler($event)"
+    @input="inputHandler($people)"
     class="field"
   />
 </template>

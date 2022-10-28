@@ -7,6 +7,9 @@ export default {
   getPeople(id) {
     return apiClient.get('/people/' + id)
   },
+  getPeopleAll() {
+    return apiClient.get('/peopleAll')
+  },
   savePeople(event) {
     return apiClient.post('/people', event)
   },

@@ -9,7 +9,8 @@ export default {
       firstname: user.firstname,
       lastname: user.lastname,
       age: user.age,
-      hometown: user.hometown
+      hometown: user.hometown,
+      imageUrls: user.image
     })
   },
   login(user) {

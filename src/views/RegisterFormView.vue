@@ -1,111 +1,114 @@
 <template>
-  <body>
-    <div class="col-md-12">
-      <div class="card card-container">
-        <img
-          id="profile-img"
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          class="profile-img-card"
-        />
+  <div class="col-md-12">
+    <div class="card card-container">
+      <img
+        id="profile-img"
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        class="profile-img-card"
+      />
 
-        <Form @submit="handleRegister" :validation-schema="schema">
-          <div v-if="!successful">
-            <div class="form-group">
-              <label for="username">Username</label>
+      <Form @submit="handleRegister" :validation-schema="schema">
+        <div v-if="!successful">
+          <div class="form-group">
+            <label for="username">Username</label>
 
-              <Field name="username" type="text" class="form-control" />
+            <Field name="username" type="text" class="form-control" />
 
-              <ErrorMessage name="username" class="error-feedback" />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email</label>
-
-              <Field name="email" type="email" class="form-control" />
-
-              <ErrorMessage name="email" class="error-feedback" />
-            </div>
-
-            <div class="form-group">
-              <label for="password">Password</label>
-
-              <Field name="password" type="password" class="form-control" />
-
-              <ErrorMessage name="password" class="error-feedback" />
-            </div>
-
-            <div class="form-group">
-              <label for="firstname">First Name</label>
-
-              <Field name="firstname" type="firstname" class="form-control" />
-
-              <ErrorMessage name="firstname" class="error-feedback" />
-            </div>
-
-            <div class="form-group">
-              <label for="lastname">Last Name</label>
-
-              <Field name="lastname" type="lastname" class="form-control" />
-
-              <ErrorMessage name="lastname" class="error-feedback" />
-            </div>
-
-            <div class="form-group">
-              <label for="age">Age</label>
-
-              <Field name="age" type="age" class="form-control" />
-
-              <ErrorMessage name="age" class="error-feedback" />
-            </div>
-
-            <div class="form-group">
-              <label for="hometown">Hometown</label>
-
-              <Field name="hometown" type="hometown" class="form-control" />
-
-              <ErrorMessage name="hometown" class="error-feedback" />
-            </div>
-
-            <div class="form-group">
-              <button class="btn btn-primary btn-block" :disabled="loading">
-                <span
-                  v-show="loading"
-                  class="spinner-border spinner-border-sm"
-                ></span>
-
-                Sign Up
-              </button>
-            </div>
+            <ErrorMessage name="username" class="error-feedback" />
           </div>
-        </Form>
 
-        <div
-          v-if="message"
-          class="alert"
-          :class="successful ? 'alert-success' : 'alert-danger'"
-        >
-          {{ message }}
+          <div class="form-group">
+            <label for="email">Email</label>
+
+            <Field name="email" type="email" class="form-control" />
+
+            <ErrorMessage name="email" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+
+            <Field name="password" type="password" class="form-control" />
+
+            <ErrorMessage name="password" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+
+            <Field name="firstname" type="firstname" class="form-control" />
+
+            <ErrorMessage name="firstname" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+
+            <Field name="lastname" type="lastname" class="form-control" />
+
+            <ErrorMessage name="lastname" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age</label>
+
+            <Field name="age" type="age" class="form-control" />
+
+            <ErrorMessage name="age" class="error-feedback" />
+          </div>
+
+          <div class="form-group">
+            <label for="hometown">Hometown</label>
+
+            <Field name="hometown" type="hometown" class="form-control" />
+
+            <ErrorMessage name="hometown" class="error-feedback" />
+          </div>
+
+          <UploadImages @changed="handleImages" />
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" :disabled="loading">
+              <span
+                v-show="loading"
+                class="spinner-border spinner-border-sm"
+              ></span>
+
+              Sign Up
+            </button>
+          </div>
         </div>
+      </Form>
+
+      <div
+        v-if="message"
+        class="alert"
+        :class="successful ? 'alert-success' : 'alert-danger'"
+      >
+        {{ message }}
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
+import UploadImages from 'vue-upload-drop-images'
 import { Form, Field, ErrorMessage } from 'vee-validate'
 import * as yup from 'yup'
 // eslint-disable-next-line
-    
+
 import AuthService from '@/services/AuthServices.js'
+import PeopleServices from '@/services/PeopleService.js'
 export default {
   name: 'RegisterView',
   components: {
     Form,
     Field,
-    ErrorMessage
+    ErrorMessage,
+    UploadImages
   },
   // eslint-disable-next-line
-    
+
   inject: ['GStore'],
   data() {
     const schema = yup.object().shape({
@@ -151,29 +154,38 @@ export default {
   },
   mounted() {
     if (this.GStore.currentUser) {
-      this.$router.push('/event')
+      this.$router.push('/people')
     }
   },
   methods: {
     // eslint-disable-next-line
-    
+
     handleRegister(user) {
-      this.message = ''
-      this.successful = false
-      this.loading = true
-      AuthService.register(user).then(() => {
-        this.$router.push({ name: 'Login' })
+      Promise.all(
+        this.files.map((file) => {
+          return PeopleServices.uploadFile(file)
+        })
+      ).then((response) => {
+        console.log(response)
+        console.log(response.map((r) => r.data))
+        user.image = response.map((r) => r.data).toString()
+        AuthService.register(user).then(() => {
+          this.$router.push({ name: 'Login' })
+        })
+        this.message = ''
+        this.successful = false
+        this.loading = true
       })
+    },
+    handleImages(files) {
+      console.log('called handle images')
+      this.files = files
     }
   }
 }
 </script>
 
 <style scoped>
-body {
-  background-image: url(../assets/v870-tang-36.jpg);
-  position: static;
-}
 label {
   display: block;
   margin-top: 10px;

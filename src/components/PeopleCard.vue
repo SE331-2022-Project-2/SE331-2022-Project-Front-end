@@ -5,9 +5,8 @@
       :to="{ name: 'PeopleLayoutView', params: { id: people.id } }"
     >
       <div class="event-card">
-        <div class="imgBx">
+        <div class="imgBx"></div>
           <img :src="people.imageUrls" />
-        </div>
         <div class="details">
           <span>{{ people.name }} {{ people.surname }}</span>
           <h4>{{ people.dose }}</h4>

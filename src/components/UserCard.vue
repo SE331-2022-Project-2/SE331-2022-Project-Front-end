@@ -2,15 +2,15 @@
   <body>
     <router-link
       class="event-link"
-      :to="{ name: 'PeopleLayoutView', params: { id: people.id } }"
+      :to="{ name: 'UserLayoutView', params: { id: user.id } }"
     >
-      <div class="event-card">
-        <div class="imgBx">
-          <img :src="people.imageUrls[0]" />
-        </div>
-        <div class="details">
-          <span>{{ people.name }} {{ people.surname }}</span>
-          <h4>{{ people.dose }}</h4>
+      <div class="box">
+        <div class="event-card">
+          <div class="imgBx"></div>
+          <div class="details">
+            <h1>{{ user.username }}</h1>
+            <span>{{ user.email }} </span>
+          </div>
         </div>
       </div>
     </router-link>
@@ -18,9 +18,9 @@
 </template>
 <script>
 export default {
-  name: 'PeopleCard',
+  name: 'UserCard',
   props: {
-    people: {
+    user: {
       type: Object,
       required: true
     }
@@ -40,6 +40,14 @@ body {
   background: white;
   font-family: sans-serif;
 }
+/* .box {
+  position: static;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 15px;
+  margin: 0 auto;
+} */
 .event-card {
   position: relative;
   width: 300px;

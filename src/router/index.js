@@ -15,6 +15,10 @@ import OrganizerService from '@/services/DoctorService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
 import DoctorService from '@/services/DoctorService.js'
+import UserListView from '@/views/UserListView.vue'
+import UserLayoutView from '@/views/user/UserLayoutView.vue'
+import UserService from '@/services/UserService'
+
 const routes = [
   {
     path: '/',
@@ -112,6 +116,35 @@ const routes = [
           console.log('cannot load organizer')
         })
     }
+  },
+  {
+    path: '/userlist',
+    name: 'UserList',
+    component: UserListView,
+    props: (route) => ({ page: parseInt(route.query.page) || 1 })
+  },
+  {
+    path: '/user/:id',
+    name: 'UserLayoutView',
+    component: UserLayoutView,
+    beforeEnter: (to) => {
+      return UserService.getUser(to.params.id)
+        .then((response) => {
+          GStore.user = response.data
+        })
+        .catch((error) => {
+          if (error.response && error.response.start == 404) {
+            return {
+              name: '404Resource',
+              parames: { resource: 'user' }
+            }
+          } else {
+            return { name: 'NetworkError' }
+          }
+        })
+    },
+    props: true,
+    children: []
   },
   {
     path: '/404/:resource',

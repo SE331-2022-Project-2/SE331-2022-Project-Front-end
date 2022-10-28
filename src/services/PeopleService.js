@@ -29,5 +29,8 @@ export default {
         'Content-Type': 'multipart/form-data'
       }
     })
+  },
+  setDoctorToPatient(people) {
+    return apiClient.post('/setDoctor', people)
   }
 }

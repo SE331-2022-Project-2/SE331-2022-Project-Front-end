@@ -52,7 +52,7 @@ const routes = [
     name: 'PeopleLayoutView',
     component: PeopleLayoutView,
     beforeEnter: (to) => {
-      return PeopleService.getPeople(to.params.id)
+      PeopleService.getPeople(to.params.id)
         .then((response) => {
           GStore.people = response.data
         })
@@ -66,6 +66,15 @@ const routes = [
             return { name: 'NetworkError' }
           }
         })
+      DoctorService.getDoctorAll()
+        .then((response) => {
+          GStore.doctors = response.data
+        })
+        .catch(() => {
+          GStore.doctors = null
+          console.log('cannot load organizer')
+        })
+      return
     },
     props: true,
     children: [

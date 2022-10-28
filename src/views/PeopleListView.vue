@@ -22,14 +22,8 @@
 
       <div v-if="isDoctor">
         <div v-for="people in peoples" :key="people.id" :people="people">
-          <span
-            v-for="hasVaccine in people.hasVaccines"
-            :key="hasVaccine.id"
-            :people="people"
-          >
-            <span v-if="hasVaccine.doctor.name == GStore.currentUser.name">
-              <PeopleCard :people="people" />
-            </span>
+          <span v-if="people.doctor.name == GStore.currentUser.name">
+            <PeopleCard :people="people" />
           </span>
         </div>
       </div>

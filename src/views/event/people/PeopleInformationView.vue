@@ -29,7 +29,9 @@
   <div>
     <p>{{ people.name }} {{ people.surname }} {{ people.age }}</p>
     <p>{{ people.hometown }}</p>
-    <p>Doctor : {{ people.doctor.name }}</p>
+    <span v-if="people.doctor != null">
+      <p>Doctor : {{ people.doctor.name }}</p>
+    </span>
 
     <form @submit.prevent="setDoctor">
       <BaseSelect

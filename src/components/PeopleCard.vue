@@ -6,7 +6,7 @@
     >
       <div class="event-card">
         <div class="imgBx">
-          <img :src="people.imageUrls[0]" />
+          <img :src="people.imageUrls" />
         </div>
         <div class="details">
           <span>{{ people.name }} {{ people.surname }}</span>

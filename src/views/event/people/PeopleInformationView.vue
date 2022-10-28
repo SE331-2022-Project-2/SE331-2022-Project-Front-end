@@ -1,6 +1,11 @@
 <template>
-  <p>{{ people.name }} {{ people.surname }} {{ people.age }}</p>
-  <p>{{ people.hometown }}</p>
+  <div>
+    <p>{{ people.name }} {{ people.surname }} {{ people.age }}</p>
+    <p>{{ people.hometown }}</p>
+    <span v-for="comment in people.comment" :key="comment">
+      {{ comment }}
+    </span>
+  </div>
 </template>
 
 <script>

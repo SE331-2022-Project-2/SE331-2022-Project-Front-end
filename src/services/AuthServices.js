@@ -5,7 +5,11 @@ export default {
     return apiClient.post('/register', {
       username: user.username,
       password: user.password,
-      email: user.email
+      email: user.email,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      age: user.age,
+      hometown: user.hometown
     })
   },
   login(user) {
@@ -45,5 +49,15 @@ export default {
     } else {
       return false
     }
+  },
+  changeToPatient(user) {
+    return apiClient.post('/applyPeople', {
+      id: user.id
+    })
+  },
+  changeToDoctor(user) {
+    return apiClient.post('/applyDoctor', {
+      id: user.id
+    })
   }
 }

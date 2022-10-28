@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Create an event</h1>
+    <h1>Apply role of user</h1>
     <form @submit.prevent="savePeople">
       <BaseInput
         v-model="people.category"
@@ -40,11 +40,10 @@
 
 <script>
 import PeopleService from '@/services/PeopleService'
-import UploadImages from 'vue-upload-drop-images'
 export default {
   inject: ['GStore'],
   components: {
-    UploadImages
+    // UploadImages
   },
   data() {
     return {

@@ -1,19 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PeopleListView from '@/views/PeopleListView.vue'
-import PeopleCommentView from '@/views/event/people/PeopleCommentView.vue'
 import PeopleInformationView from '@/views/event/people/PeopleInformationView'
-import AboutView from '../views/AboutView.vue'
+import AddVaccineView from '../views/AddVaccineView.vue'
 import PeopleLayoutView from '@/views/event/people/PeopleLayoutView'
 import PeopleVaccineView from '@/views/event/people/PeopleVaccineView'
+import AddCommentView from '@/views/event/people/AddCommentView'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetWorkErrorView from '@/views/NetworkErrorView.vue'
 import AddPeople from '@/views/PeopleForm.vue'
 import NProgress from 'nprogress'
 import GStore from '@/store'
 import PeopleService from '@/services/PeopleService'
-import OrganizerService from '@/services/OrganizerService.js'
+import OrganizerService from '@/services/DoctorService.js'
 import Login from '@/views/LoginFormView.vue'
 import Register from '@/views/RegisterFormView.vue'
+import UserListView from '@/views/UserListView.vue'
+import UserLayoutView from '@/views/user/UserLayoutView.vue'
+import UserService from '@/services/UserService'
+
 const routes = [
   {
     path: '/',
@@ -22,9 +26,9 @@ const routes = [
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/addVaccine',
+    name: 'AddVaccine',
+    component: AddVaccineView
   },
   {
     path: '/people/:id',
@@ -61,10 +65,10 @@ const routes = [
         component: PeopleVaccineView
       },
       {
-        path: 'edit',
-        name: 'PeopleComment',
+        path: 'add',
+        name: 'AddComment',
         props: true,
-        component: PeopleCommentView
+        component: AddCommentView
       }
     ]
   },
@@ -82,6 +86,35 @@ const routes = [
           console.log('cannot load organizer')
         })
     }
+  },
+  {
+    path: '/userlist',
+    name: 'UserList',
+    component: UserListView,
+    props: (route) => ({ page: parseInt(route.query.page) || 1 })
+  },
+  {
+    path: '/user/:id',
+    name: 'UserLayoutView',
+    component: UserLayoutView,
+    beforeEnter: (to) => {
+      return UserService.getUser(to.params.id)
+        .then((response) => {
+          GStore.user = response.data
+        })
+        .catch((error) => {
+          if (error.response && error.response.start == 404) {
+            return {
+              name: '404Resource',
+              parames: { resource: 'user' }
+            }
+          } else {
+            return { name: 'NetworkError' }
+          }
+        })
+    },
+    props: true,
+    children: []
   },
   {
     path: '/404/:resource',

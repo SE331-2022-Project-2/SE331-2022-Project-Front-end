@@ -32,5 +32,8 @@ export default {
   },
   setDoctorToPatient(people) {
     return apiClient.post('/setDoctor', people)
+  },
+  addVaccine(vaccine) {
+    return apiClient.post('/vaccines', vaccine)
   }
 }

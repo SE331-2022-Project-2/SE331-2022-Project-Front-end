@@ -13,18 +13,37 @@
 
       <BaseSelect
         :options="GStore.peoples"
-        v-model="vaccine.people.id"
+        v-model="vaccine.patient.id"
         label="select patient"
       />
 
-      <h3>Name of doctor</h3>
+      <label for="vaccine.vaccineName"> vaccine type : </label>
+      <input id="vaccine.vaccineName" v-model="vaccine.vaccineName" />
 
+      <label for="vaccine.date"> date : </label>
+      <input id="vaccine.date" v-model="vaccine.date" />
+
+      <label for="vaccine.dose"> dose : </label>
+      <input id="vaccine.dose" v-model="vaccine.dose" />
+
+      <!-- 
+      <BaseInput
+        v-model="vaccine.vaccineName"
+        type="text"
+        label="vaccine type"
+      />
+
+      <BaseInput v-model="vaccine.date" type="text" label="date" />
+
+      <BaseInput v-model="vaccine.dose" type="text" label="dose" /> -->
+
+      <!-- 
       <BaseSelect
         :options="GStore.doctors"
         v-model="vaccine.doctor.id"
         label="Select an Organizer"
-      />
-      <!-- 
+      /> -->
+      <!--       
       <BaseInput v-model="people.name" type="text" label="Title" />
 
       <BaseInput v-model="event.description" type="text" label="Description" />
@@ -43,12 +62,10 @@
         label="Select an Organizer"
       />
       <h3>The image of the Event</h3>
-      <UploadImages @changed="handleImages" />
+      <UploadImages @changed="handleImages" /> -->
 
       <button type="submit">Submit</button>
-    </form>
-
-    <pre>{{ event }}</pre> -->
+      <pre>{{ vaccine }}</pre>
     </form>
   </div>
 </template>
@@ -61,40 +78,27 @@ export default {
   data() {
     return {
       vaccine: {
+        vaccineName: '',
+        date: '',
+        dose: null,
         // category: '',
         // title: '',
         // description: '',
         // location: '',
-        people: { id: '', name: '' },
-        doctor: { id: '', name: '' }
+        patient: { id: '', name: '' }
       }
     }
   },
   methods: {
     addVaccine() {
-      Promise.all(
-        this.files.map((file) => {
-          return PeopleService.uploadFile(file)
-        })
-      )
-        .then((response) => {
-          console.log(response)
-          this.$router.push({
-            name: 'EventDetails',
-            params: { id: response.data.id }
-          })
-          this.GStore.flashMessage =
-            'You are successfully add a new event for ' + response.data.title
-          setTimeout(() => {
-            this.GStore.flashMessage = ''
-          }, 3000)
+      console.log(this.vaccine)
+      PeopleService.addVaccine(this.vaccine)
+        .then(() => {
+          this.$router.push({ path: '/' })
         })
         .catch(() => {
-          this.$router.push('NetworkError')
+          console.log('fail')
         })
-    },
-    handleImages(files) {
-      this.files = files
     }
   }
 }

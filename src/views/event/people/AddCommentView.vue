@@ -29,7 +29,9 @@ export default {
       // GStore.patient.doctorRec = GStore.comments.filter(
       //   (patient) => GStore.patient.id == patient.patient_id
       // )
-      PeopleService.addComment(GStore.people.id, commentText.comment)
+      PeopleService.addComment(GStore.people.id, commentText.comment).then(() => {
+        this.$router.push({name:"PeopleInformations"})
+      })
     }
   }
 }

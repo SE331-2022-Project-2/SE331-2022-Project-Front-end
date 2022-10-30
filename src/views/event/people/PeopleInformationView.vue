@@ -19,7 +19,7 @@
           <td>
             <div>
               <span v-for="comment in people.comment" :key="comment">
-                {{ comment }}
+                {{ comment }}<br />
               </span>
             </div>
           </td>

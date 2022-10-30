@@ -1,6 +1,10 @@
 <template>
-  <div class="col-md-12">
+  <body>
+   <div class="col-md-12">
     <div class="card card-container">
+      <div class="container">
+        
+      </div>
       <img
         id="profile-img"
         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -88,7 +92,9 @@
         {{ message }}
       </div>
     </div>
-  </div>
+  </div> 
+  </body>
+  
 </template>
 
 <script>
@@ -186,6 +192,31 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+/* End Fonts */
+/* Start Global rules */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* End Global rules */
+
+/* Start body rules */
+body {
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+background-attachment: fixed;
+  background-repeat: no-repeat;
+
+    font-family: 'Vibur', cursive;
+/*   the main font */
+    font-family: 'Abel', sans-serif;
+opacity: .95;
+/* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+background-image: url(@/assets/v870-tang-36.jpg);
+}
+
 label {
   display: block;
   margin-top: 10px;
@@ -195,16 +226,14 @@ label {
   padding: 40px 40px;
 }
 .card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+   width: 450px;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 2%;
+    background-image: linear-gradient(-225deg, #efb0b2 50%, #bfe6f2 50%);
 }
 .profile-img-card {
   width: 96px;
@@ -217,5 +246,8 @@ label {
 }
 .error-feedback {
   color: red;
+}
+button{
+  margin-top: 50px;
 }
 </style>

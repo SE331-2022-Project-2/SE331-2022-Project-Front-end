@@ -4,26 +4,24 @@
   </div>
   <div id="nav">
     <nav class="navbar navbar-expand">
-  <nav class="navMenu">
-    <a>
-      <router-link :to="{ name: 'PeopleList' }">Home</router-link> 
-    </a>
-    <a>
+      <nav class="navMenu">
+        <a>
+          <router-link :to="{ name: 'PeopleList' }">Home</router-link>
+        </a>
+        <a>
           <span v-if="isAdmin">
-        
-        <router-link :to="{ name: 'AddVaccine' }">Add Vaccine</router-link>
-      </span>
-    </a>
-  <a>
-         <span v-if="isAdmin">
-        
-        <router-link :to="{ name: 'UserList' }"> User List</router-link>
-      </span> 
-  </a>
+            <router-link :to="{ name: 'AddVaccine' }">Add Vaccine</router-link>
+          </span>
+        </a>
+        <a>
+          <span v-if="isAdmin">
+            <router-link :to="{ name: 'UserList' }"> User List</router-link>
+          </span>
+        </a>
 
-      <div class="dot"></div>
-  </nav>
-     
+        <div class="dot"></div>
+      </nav>
+
       <ul v-if="!GStore.currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
@@ -345,13 +343,14 @@ select::ms-expand {
 .button.-icon-center {
   padding: 0 20px;
 }
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}.navMenu {
+}
+.navMenu {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -410,7 +409,7 @@ select::ms-expand {
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
-#nav{
+#nav {
   background-color: #212121;
 }
 </style>

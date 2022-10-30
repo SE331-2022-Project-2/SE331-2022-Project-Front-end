@@ -1,7 +1,6 @@
 <template>
   <div v-if="GStore.user">
     <div class="box">
-
       <div id="nav">
         <!-- <router-link :to="{ name: 'PeopleInformations' }"
         >Information</router-link

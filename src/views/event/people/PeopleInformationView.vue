@@ -38,14 +38,16 @@
     <span v-if="people.doctor != null">
       <p>Doctor : {{ people.doctor.name }}</p>
     </span> -->
-    <form @submit.prevent="setDoctor">
-      <BaseSelect
-        :options="GStore.doctors"
-        v-model="peopleToSet.doctor.id"
-        label="Select Doctor"
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <span v-if="isAdmin">
+      <form @submit.prevent="setDoctor">
+        <BaseSelect
+          :options="GStore.doctors"
+          v-model="peopleToSet.doctor.id"
+          label="Select Doctor"
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </span>
     <!-- 
     <span v-for="comment in people.comment" :key="comment">
       {{ comment }}
@@ -54,6 +56,7 @@
 </template>
 
 <script>
+import AuthServices from '@/services/AuthServices'
 import PeopleService from '@/services/PeopleService'
 import GStore from '@/store'
 export default {
@@ -81,6 +84,20 @@ export default {
         .catch(() => {
           console.log('fail')
         })
+    }
+  },
+  computed: {
+    currentUser() {
+      return localStorage.getItem('user')
+    },
+    isAdmin() {
+      return AuthServices.hasRoles('ROLE_ADMIN')
+    },
+    isPeople() {
+      return AuthServices.hasRoles('ROLE_PEOPLE')
+    },
+    isDoctor() {
+      return AuthServices.hasRoles('ROLE_DOCTOR')
     }
   }
 }
@@ -154,7 +171,7 @@ button {
   margin-bottom: 10px;
   color: #212121;
 }
-form{
+form {
   margin-top: 20px;
 }
 </style>

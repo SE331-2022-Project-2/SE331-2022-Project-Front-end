@@ -1,9 +1,7 @@
 <template>
   <div class="col-md-12">
     <div class="card card-container">
-      <div class="container">
-        
-      </div>
+      <div class="container"></div>
       <img
         id="profile-img"
         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"

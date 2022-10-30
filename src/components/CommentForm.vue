@@ -1,5 +1,4 @@
 <template>
-
   <form class="comment-form" @submit.prevent="onSubmit">
     <label for="comment">Comment:</label>
     <textarea id="comment" v-model="comment"></textarea>

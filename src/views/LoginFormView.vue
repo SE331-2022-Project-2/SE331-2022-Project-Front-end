@@ -171,7 +171,7 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
-input{
+input {
   box-sizing: border-box;
   display: block;
   width: 90%;

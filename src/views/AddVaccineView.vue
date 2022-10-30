@@ -125,7 +125,8 @@ export default {
   padding: 0 calc(var(--size-bezel) * 3);
 }
 
-h1, h3 {
+h1,
+h3 {
   font-weight: 900;
 }
 .card {
@@ -142,7 +143,8 @@ h1, h3 {
 input {
   position: relative;
 }
-input , form {
+input,
+form {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -167,5 +169,4 @@ button {
 button + button {
   margin-left: calc(var(--size-bezel) * 2);
 }
-
 </style>

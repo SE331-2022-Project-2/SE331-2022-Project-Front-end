@@ -4,6 +4,26 @@
   </div>
   <div id="nav">
     <nav class="navbar navbar-expand">
+  <nav class="navMenu">
+    <a>
+      <router-link :to="{ name: 'PeopleList' }">Home</router-link> 
+    </a>
+    <a>
+          <span v-if="isAdmin">
+        
+        <router-link :to="{ name: 'AddVaccine' }">Add Vaccine</router-link>
+      </span>
+    </a>
+  <a>
+         <span v-if="isAdmin">
+        
+        <router-link :to="{ name: 'UserList' }"> User List</router-link>
+      </span> 
+  </a>
+
+      <div class="dot"></div>
+  </nav>
+     
       <ul v-if="!GStore.currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
@@ -31,17 +51,6 @@
       </ul>
     </nav>
   </div>
-  <nav>
-    <router-link :to="{ name: 'PeopleList' }">Home</router-link>
-    <span v-if="isAdmin">
-      |
-      <router-link :to="{ name: 'AddVaccine' }">Add Vaccine</router-link>
-    </span>
-    <span v-if="isAdmin">
-      |
-      <router-link :to="{ name: 'UserList' }"> User List</router-link>
-    </span>
-  </nav>
   <router-view />
 </template>
 <script>
@@ -99,7 +108,7 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
 }
 
 nav a.router-link-exact-active {
@@ -335,5 +344,73 @@ select::ms-expand {
 }
 .button.-icon-center {
   padding: 0 20px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}.navMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 200px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #fddb3a;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #fddb3a;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+  transform: translateX(50px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(95px);
+  transform: translateX(95px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(295px);
+  transform: translateX(295px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(495px);
+  transform: translateX(495px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+#nav{
+  background-color: #212121;
 }
 </style>

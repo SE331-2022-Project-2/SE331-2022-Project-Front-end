@@ -1,6 +1,5 @@
 <template>
-  <body>
-   <div class="col-md-12">
+  <div class="col-md-12">
     <div class="card card-container">
       <div class="container">
         
@@ -92,9 +91,7 @@
         {{ message }}
       </div>
     </div>
-  </div> 
-  </body>
-  
+  </div>
 </template>
 
 <script>
@@ -192,31 +189,67 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
-/* End Fonts */
-/* Start Global rules */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url('https://rsms.me/inter/inter.css');
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  --size-bezel: 0.5rem;
+  --size-radius: 4px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+  font-size: calc(0.6rem + 0.4vw);
+  color: var(--color-text);
+  background: var(--color-background);
+  font-weight: 300;
+  padding: 0 calc(var(--size-bezel) * 3);
 }
-/* End Global rules */
-
-/* Start body rules */
-body {
-    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
-background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
-background-attachment: fixed;
-  background-repeat: no-repeat;
-
-    font-family: 'Vibur', cursive;
-/*   the main font */
-    font-family: 'Abel', sans-serif;
-opacity: .95;
-/* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
-background-image: url(@/assets/v870-tang-36.jpg);
+h1,
+h3 {
+  font-weight: 900;
 }
-
+.card {
+  background: white;
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+input {
+  position: relative;
+}
+.form-control {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  color: currentColor;
+  background: transparent;
+  border-radius: var(--size-radius);
+  margin-left: auto;
+  margin-right: auto;
+}
+button {
+  color: currentColor;
+  padding: 5px;
+  background: #fab700;
+  border: 2px solid #212121;
+  border-radius: var(--size-radius);
+  font-weight: 900;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+button + button {
+  margin-left: calc(var(--size-bezel) * 2);
+}
 label {
   display: block;
   margin-top: 10px;
@@ -225,16 +258,18 @@ label {
   max-width: 350px !important;
   padding: 40px 40px;
 }
-.card {
-   width: 450px;
-    min-height: 500px;
-    height: auto;
-    border-radius: 5px;
-    margin: 2% auto;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 2%;
-    background-image: linear-gradient(-225deg, #efb0b2 50%, #bfe6f2 50%);
-}
+/* .card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+} */
 .profile-img-card {
   width: 96px;
   height: 96px;
@@ -246,8 +281,5 @@ label {
 }
 .error-feedback {
   color: red;
-}
-button{
-  margin-top: 50px;
 }
 </style>

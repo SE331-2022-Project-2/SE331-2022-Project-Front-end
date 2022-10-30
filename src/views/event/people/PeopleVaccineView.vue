@@ -7,7 +7,7 @@
       </tr>
       <tr>
         <th>Date</th>
-        <td>{{ vaccine.vaccineName }}</td>
+        <td>{{ vaccine.date }}</td>
       </tr>
       <tr>
         <th>Number of dose</th>

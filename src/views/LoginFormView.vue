@@ -136,7 +136,7 @@ body {
 }
 .top:before {
   transform: rotate(45deg);
-  background: #e46569;
+  background: #fab700;
 }
 .top:after {
   transform: rotate(135deg);
@@ -144,11 +144,11 @@ body {
 }
 .bottom:before {
   transform: rotate(-45deg);
-  background: #60b8d4;
+  background: #212121;
 }
 .bottom:after {
   transform: rotate(-135deg);
-  background: #3745b5;
+  background: #ffef62;
 }
 label {
   display: block;
@@ -161,16 +161,27 @@ label {
 }
 
 .card {
-  background-color: rgb(255, 255, 255);
-  padding: 20px 20px 30px;
-  margin: 0 auto 20px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  background: white;
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+input{
+  box-sizing: border-box;
+  display: block;
+  width: 90%;
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  color: currentColor;
+  background: transparent;
+  border-radius: var(--size-radius);
+  margin-left: auto;
+  margin-right: auto;
 }
 .profile-img-card {
   width: 96px;

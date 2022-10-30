@@ -364,7 +364,7 @@ select::ms-expand {
   text-decoration: none;
   font-size: 1.2em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 900;
   display: inline-block;
   width: 200px;
   -webkit-transition: all 0.2s ease-in-out;

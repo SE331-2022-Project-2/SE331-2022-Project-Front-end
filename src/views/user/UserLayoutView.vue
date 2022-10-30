@@ -1,7 +1,7 @@
 <template>
   <div v-if="GStore.user">
     <div class="box">
-      <h1>Hello</h1>
+
       <div id="nav">
         <!-- <router-link :to="{ name: 'PeopleInformations' }"
         >Information</router-link
@@ -171,15 +171,11 @@ button {
   display: inline-block;
   font-family: Arial, sans-serif;
   font-size: 1em;
-  height: 550px;
+  height: 200px;
   width: 1000px;
   padding: 0 25px;
   transition: all 200ms;
-}
-.box h1 {
-  margin: 60px;
-  padding-left: 0;
-  color: #000;
+  margin-top: 100px;
 }
 .box:hover {
   background-color: #afe6c3;
@@ -194,6 +190,7 @@ button {
 table {
   border-collapse: collapse;
   width: 100%;
+  margin-top: 20px;
 }
 
 .detail {

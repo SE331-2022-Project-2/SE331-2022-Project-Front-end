@@ -1,4 +1,5 @@
 <template>
+
   <form class="comment-form" @submit.prevent="onSubmit">
     <label for="comment">Comment:</label>
     <textarea id="comment" v-model="comment"></textarea>
@@ -51,27 +52,27 @@ label {
 }
 
 .comment-form {
-  display: flex;
-  flex-direction: column;
-  width: 420px;
-  padding: 20px;
-  margin: auto;
-  margin-top: 40px;
-  border: 2px solid #d8d8d8;
-  border-radius: 10px;
-  background: #eff9fe;
-  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+  background: white;
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  width: 500px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .comment-form .button {
   display: block;
   margin: auto;
   margin-top: 25px;
-  background: #b5c7df;
-  border: 2px solid #d8d8d8;
+  background: #212121;
+  border: 2px solid #ffef62;
   border-radius: 5px;
+  width: auto;
+  color: white;
 }
 
 textarea {

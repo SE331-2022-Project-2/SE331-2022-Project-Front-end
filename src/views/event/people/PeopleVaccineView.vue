@@ -26,23 +26,29 @@ export default {
 table {
   border-collapse: collapse;
   width: auto;
-  margin-top: 13pt;
   margin-left: auto;
   margin-right: auto;
+  background: white;
+  padding: calc(4 * var(--size-bezel));
+  margin-top: 20px;
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  width: 100;
 }
 
 table,
 th,
 td {
-  border: 2px solid #1abc9c;
+  border: 2px solid #212121;
 }
 
 .detail thead {
-  background: #1abc9c;
+  background: #ffef62;
 }
 
 thead {
-  color: white;
+  color: #212121;
 }
 
 th,
@@ -52,8 +58,8 @@ td {
 }
 th {
   width: 150pt;
-  color: white;
-  background-color: #1abc9c;
+  color: #212121;
+  background-color: #ffef62;
 }
 td {
   width: 150pt;

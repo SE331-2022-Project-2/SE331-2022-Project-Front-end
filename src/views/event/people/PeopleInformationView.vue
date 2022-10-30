@@ -38,7 +38,6 @@
     <span v-if="people.doctor != null">
       <p>Doctor : {{ people.doctor.name }}</p>
     </span> -->
-
     <form @submit.prevent="setDoctor">
       <BaseSelect
         :options="GStore.doctors"

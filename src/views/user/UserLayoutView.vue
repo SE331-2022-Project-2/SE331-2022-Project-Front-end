@@ -162,20 +162,15 @@ button {
   left: 0px;
 }
 .box {
-  background-color: #c2fbd7;
-  border-radius: 50px;
-  border-width: 0;
-  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
-  color: #008000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Arial, sans-serif;
-  font-size: 1em;
-  height: 200px;
+  background: white;
+  padding: calc(4 * var(--size-bezel));
+  margin-top: 30px;
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
   width: 1000px;
-  padding: 0 25px;
-  transition: all 200ms;
-  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .box:hover {
   background-color: #afe6c3;
@@ -194,11 +189,11 @@ table {
 }
 
 .detail {
-  border: 2px solid #1abc9c;
+  border: 2px solid #ffe54c;
 }
 
 .detail thead {
-  background: #1abc9c;
+  background: #ffe54c;
 }
 
 thead {
@@ -212,7 +207,7 @@ td {
 }
 th {
   color: white;
-  background-color: #1abc9c;
+  background-color: #ffe54c;
 }
 td {
   background-color: white;

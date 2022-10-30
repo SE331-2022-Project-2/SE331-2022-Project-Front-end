@@ -59,7 +59,5 @@ td {
   width: 150pt;
   background-color: white;
 }
-tr:hover {
-  background-color: coral;
-}
+
 </style>

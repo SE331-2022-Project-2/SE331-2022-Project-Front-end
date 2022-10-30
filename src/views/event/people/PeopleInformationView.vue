@@ -146,4 +146,15 @@ td {
   color: #008000;
   text-align: center;
 }
+button {
+  color: currentColor;
+  padding: 5px;
+  background: #1abc9c;
+  border: 2px solid #212121;
+  border-radius: var(--size-radius);
+  font-weight: 900;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
 </style>

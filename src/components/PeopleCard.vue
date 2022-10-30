@@ -47,7 +47,7 @@ body {
   position: relative;
   width: 300px;
   height: 350px;
-  background: #fff;
+  background: #212121;
   margin: 0 auto;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -61,7 +61,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background: #60b8d4;
+  background: #fab700;
   transition: 0.5s;
   z-index: -1;
 }

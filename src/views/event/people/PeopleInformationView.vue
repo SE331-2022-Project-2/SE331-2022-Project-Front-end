@@ -89,18 +89,18 @@ export default {
 <style scoped>
 table {
   border-collapse: collapse;
-  width: 1100px;
-  margin-top: 13pt;
+  width: 1000px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .detail {
-  border: 2px solid #1abc9c;
+  border: 2px solid #212121;
 }
 
 .detail thead {
-  background: #1abc9c;
+  background: #212121;
 }
 
 thead {
@@ -114,47 +114,48 @@ td {
 }
 th {
   color: white;
-  background-color: #1abc9c;
+  background-color: #212121;
 }
 td {
   background-color: white;
 }
 .box {
-  background-color: #c2fbd7;
-  border-radius: 50px;
-  border-width: 0;
-  box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
-  color: #008000;
-  cursor: pointer;
   display: block;
   font-family: Arial, sans-serif;
   font-size: 1em;
-  height: 200px;
-  width: 1000pt;
+  height: 300px;
+  width: 100pt;
   padding: 0 25px;
-  transition: all 200ms;
+  background: white;
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
-}
-.box:hover {
-  background-color: #afe6c3;
-  transform: scale(1);
+  margin-top: 20px;
 }
 .box h1 {
-  margin-top: 100px;
+  margin-top: 10px;
   padding-left: 10;
-  color: #008000;
+  color: #ffef62;
   text-align: center;
+  font-weight: 600;
 }
 button {
   color: currentColor;
   padding: 5px;
-  background: #1abc9c;
+  background: #ffef62;
   border: 2px solid #212121;
   border-radius: var(--size-radius);
   font-weight: 900;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: white;
+  color: #212121;
+}
+form{
+  margin-top: 20px;
 }
 </style>

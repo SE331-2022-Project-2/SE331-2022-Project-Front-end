@@ -143,11 +143,10 @@ h3 {
 input {
   position: relative;
 }
-input,
-form {
+input {
   box-sizing: border-box;
   display: block;
-  width: 100%;
+  width: 90%;
   border: 3px solid currentColor;
   padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
   color: currentColor;

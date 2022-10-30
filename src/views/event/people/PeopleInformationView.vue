@@ -9,6 +9,7 @@
           <th>Age</th>
           <th>Hometown</th>
           <th>Comment</th>
+          <th>Doctor</th>
         </tr>
         <tr>
           <td>{{ people.name }}</td>
@@ -22,16 +23,21 @@
               </span>
             </div>
           </td>
+          <td>
+            <span v-if="people.doctor != null">
+              <p>Doctor : {{ people.doctor.name }}</p>
+            </span>
+          </td>
         </tr>
       </table>
     </div>
   </body>
   <div>
-    <p>{{ people.name }} {{ people.surname }} {{ people.age }}</p>
+    <!-- <p>{{ people.name }} {{ people.surname }} {{ people.age }}</p>
     <p>{{ people.hometown }}</p>
     <span v-if="people.doctor != null">
       <p>Doctor : {{ people.doctor.name }}</p>
-    </span>
+    </span> -->
 
     <form @submit.prevent="setDoctor">
       <BaseSelect
@@ -41,10 +47,10 @@
       />
       <button type="submit">Submit</button>
     </form>
-
+    <!-- 
     <span v-for="comment in people.comment" :key="comment">
       {{ comment }}
-    </span>
+    </span> -->
   </div>
 </template>
 

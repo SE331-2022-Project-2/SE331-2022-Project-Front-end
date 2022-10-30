@@ -8,8 +8,8 @@
       |
       <router-link :to="{ name: 'PeopleVaccine' }">Vaccines</router-link>
       |<span v-if="isDoctor">
-      <router-link :to="{ name: 'AddComment' }">Add Comment</router-link>
-    </span>
+        <router-link :to="{ name: 'AddComment' }">Add Comment</router-link>
+      </span>
     </div>
     <router-view :people="GStore.people" />
   </div>

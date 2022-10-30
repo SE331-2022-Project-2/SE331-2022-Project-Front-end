@@ -7,7 +7,8 @@
       <div class="box">
         <div class="event-card">
           <div class="imgBx">
-          <img :src="user.imageUrls" /></div>
+            <img :src="user.imageUrls" />
+          </div>
           <div class="details">
             <h1>{{ user.username }}</h1>
             <span>{{ user.email }} </span>

@@ -3,7 +3,6 @@
     <h1>Vaccine Status</h1>
 
     <div class="events">
-
       <div v-if="isPeople">
         <div v-for="people in peoples" :key="people.id" :people="people">
           <span v-if="people.name == GStore.currentUser.name">

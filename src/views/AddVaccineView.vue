@@ -65,7 +65,7 @@
       <UploadImages @changed="handleImages" /> -->
 
       <button type="submit">Submit</button>
-      <pre>{{ vaccine }}</pre>
+      <!-- <pre>{{ vaccine }}</pre> -->
     </form>
   </div>
 </template>

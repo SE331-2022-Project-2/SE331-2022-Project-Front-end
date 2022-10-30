@@ -79,7 +79,7 @@ export default {
       console.log(this.peopleToSet)
       PeopleService.setDoctorToPatient(this.peopleToSet)
         .then(() => {
-          this.$router.push({ path: '/' })
+          this.$router.push({ name: 'PeopleList' })
         })
         .catch(() => {
           console.log('fail')

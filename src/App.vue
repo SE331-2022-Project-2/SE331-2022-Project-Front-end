@@ -6,7 +6,9 @@
     <nav class="navbar navbar-expand">
       <nav class="navMenu">
         <a>
-          <router-link :to="{ name: 'PeopleList' }">Home</router-link>
+          <span v-if="GStore.currentUser">
+            <router-link :to="{ name: 'PeopleList' }">Home</router-link>
+          </span>
         </a>
         <a>
           <span v-if="isAdmin">
@@ -35,16 +37,14 @@
         </li>
       </ul>
       <ul v-if="GStore.currentUser" class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <router-link to="/profile" class="nav-link">
-            <font-awesome-icon icon="user" />
-            {{ GStore.currentUser.name }}
-          </router-link>
+        <li class="nav-item username nav-link">
+          <font-awesome-icon icon="user" />
+          {{ GStore.currentUser.name }}
         </li>
         <li class="nav-item">
-          <a class="nav-link" @click="logout">
-            <font-awesome-icon icon="sign-out-alt" /> logout</a
-          >
+          <router-link to="/main" @click="logout" class="nav-link">
+            <font-awesome-icon icon="sign-out-alt" /> logout
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -72,7 +72,7 @@ export default {
   methods: {
     logout() {
       AuthServices.logout()
-      this.$router.go()
+      this.$router.push({ name: 'Main' })
     }
   }
 }
@@ -100,6 +100,9 @@ export default {
   color: #2c3e50;
 }
 
+.username {
+  color: white;
+}
 nav {
   padding: 1px;
 }

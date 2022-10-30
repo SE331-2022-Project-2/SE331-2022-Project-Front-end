@@ -18,10 +18,11 @@ import DoctorService from '@/services/DoctorService.js'
 import UserListView from '@/views/UserListView.vue'
 import UserLayoutView from '@/views/user/UserLayoutView.vue'
 import UserService from '@/services/UserService'
+import HomeView from '@/views/HomeView.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/patientlist',
     name: 'PeopleList',
     component: PeopleListView,
     props: (route) => ({ page: parseInt(route.query.page) || 1 })
@@ -171,6 +172,11 @@ const routes = [
     path: '/network-error',
     name: 'NetworkError',
     component: NetWorkErrorView
+  },
+  {
+    path: '/',
+    name: 'Main',
+    component: HomeView
   }
 ]
 

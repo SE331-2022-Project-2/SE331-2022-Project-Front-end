@@ -68,7 +68,7 @@ export default {
       console.log(this.userData)
       AuthService.changeToPatient(this.userData)
         .then(() => {
-          this.$router.push({ path: '/' })
+          this.$router.push({ name: 'PeopleList' })
         })
         .catch(() => {
           console.log('FAIL')
@@ -78,7 +78,7 @@ export default {
       console.log(this.userData)
       AuthService.changeToDoctor(this.userData)
         .then(() => {
-          this.$router.push({ path: '/' })
+          this.$router.push({ name: 'PeopleList' })
         })
         .catch(() => {
           console.log('FAIL')

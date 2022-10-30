@@ -96,7 +96,7 @@ export default {
       console.log(this.vaccine)
       PeopleService.addVaccine(this.vaccine)
         .then(() => {
-          this.$router.push({ path: '/' })
+          this.$router.push({ name: 'PeopleList' })
         })
         .catch(() => {
           console.log('fail')

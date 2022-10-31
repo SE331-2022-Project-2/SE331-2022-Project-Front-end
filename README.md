@@ -1,24 +1,14 @@
-# lab03
+# SE331-2022-Project-Front-end
 
-## Project setup
+## Group Member
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+632115013 Chanchanok Nantawan
+632115016 Natcha Petchsrikul
+632115027 Nitipoom Tinnasri
 ```
 
-### Compiles and minifies for production
+### Link Front-end
 ```
-npm run build
-```
+http://3.85.67.171:4500/
 
-### Lints and fixes files
 ```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

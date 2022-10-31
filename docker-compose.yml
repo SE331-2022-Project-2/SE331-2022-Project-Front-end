@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+    web:
+        image: "poomkingzaa78/331-frontend:latest"
+        ports:
+            - 4500:80
